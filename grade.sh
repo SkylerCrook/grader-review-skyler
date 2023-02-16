@@ -28,7 +28,7 @@ if [[ $? == 0 ]]
         exit 1
 fi
 
-java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore TestListExamples
+java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore TestListExamples > TestResuts.txt
 if [[ $? -eq 0 ]]
     then
         echo "Files ran succesfully"
