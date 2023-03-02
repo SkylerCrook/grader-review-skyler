@@ -37,3 +37,17 @@ if [[ $? -eq 0 ]]
         echo "Files Failed to execute" 1>&2
         exit 1
 fi
+
+
+LAST=$(tail -3 TestResults.txt)
+PASS="OK"
+
+if [[ "$LAST" == *"$PASS"* ]]
+    then
+        echo "Passed all Tests"
+    else
+        NUMBERS=($(grep -Eo '[0-9]+' <<< "$LAST"))
+        NUMTESTS=${NUMBERS[0]}
+        NUMFAILS=${NUMBERS[1]}
+        echo "Your code failed " $NUMFAILS " out of " $NUMTESTS " test(s)"
+fi
